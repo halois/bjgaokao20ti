@@ -1,0 +1,603 @@
+
+\documentclass[green]{lsbook}
+
+\tcbuselibrary{listings}
+
+\title{近年压轴20题汇编}
+\DedicatedTo{2019年的高考人儿}
+\subtitle{2010年-2018年高考真题与解答}
+\author{有名氏}% 默认值
+\BookSeries{北京高考数学系列}% 可取消
+% \BookIntroduction{压轴20题近十年真题与官方解答}
+\Publisher{} %默认值
+% \Designer{x}
+% \Editor{x}
+% \edition{1}% 可取消
+% \Price{50}
+% \isbn{978-80-7340-097-2}%
+
+% 自己所有的设置都放到settings.tex里面
+\input{settings.tex}
+\usepackage{tikz}
+\usepackage{xcolor}
+% 添加水印
+\usepackage{eso-pic}
+\newcommand{\watermark}[3]{\AddToShipoutPictureBG{
+\parbox[b][\paperheight]{\paperwidth}{
+\vfill%
+\centering%
+\tikz[remember picture, overlay]%
+  \node [rotate = #1, scale = #2] at (current page.center)%
+    {\textcolor{gray!80!cyan!30}{#3}};
+\vfill}}}
+\newcommand{\watermarkoff}{\ClearShipoutPictureBG}
+%\usepackage{blindtext} %测试用, 可加入一些测试文本\blinddocument
+% 添加水印end
+\begin{document}
+\maketitle
+% \makeflypage
+% \frontmatter
+% \tableofcontents
+
+% \mainmatter
+
+\watermark{60}{10}{压轴题}
+
+
+
+\mybox{2018年}
+\begin{tcolorbox}[applelight,title={2018.20(本小题14分)}]
+设$n$为正整数, 集合
+    $$A=\{\alpha \mid \alpha=(t_1,t_2,\cdots,t_n),t_k\in \{0,1\},k=1,2,\cdots,n\}.$$
+    对于集合$A$中的任意元素
+$\alpha=(x_1,x_2,\cdots,x_n)$和$\beta=(y_1,y_2,\cdots,y_n)$, 记
+$$M(\alpha,\beta)=\frac{1}{2}\left[(x_1+y_1-|x_1-y_1|)+(x_2+y_2-|x_2-y_2|)+\cdots+(x_n+y_n-|x_n-y_n|) \right].$$
+(1) 当$n=3$时,若$\alpha=(1,1,0)$, $\beta=(0,1,1)$, 求$M(\alpha,\alpha)$和$M(\alpha,\beta)$的值;\\
+(2) 当$n=4$时, 设$B$是$A$的子集, 且满足: 对于$B$中的任意元素$\alpha,\beta$, 当$\alpha,\beta$相同时, $M(\alpha,\beta)$是奇数;当$\alpha,\beta$不同时, $M(\alpha,\beta)$是偶数. 求集合$B$中元素个数的最大值;\\
+(3) 给定不小于$2$的$n$, 设$B$是$A$的子集, 且满足:对于$B$中的任意两个不同的元素$\alpha,\beta$, $M(\alpha,\beta)=0$. 写出一个集合$B$, 使其元素个数最多, 并说明理由.
+\end{tcolorbox}
+
+
+% \begin{tcolorbox}[win10light,title={解答}]
+(1) 因为$\alpha =(1,1,0)$, $\beta =(0,1,1)$, 所以
+$$M(\alpha, \alpha)=\frac{1}{2}[(1+1-|1-1|)+(1+1-|1-1|)+(0+0-|0-0|)]=2,$$ 
+$$M(\alpha, \beta)=\frac{1}{2}[(1+0-|1-0|)+(1+1-|1-1|)+(0+1-|0-1|)]=1.$$
+
+(2) 设$\alpha =(x_1,x_2,x_3,x_4)\in B$, 则$M(\alpha,\alpha)=x_1+x_2+x_3+x_4$. 
+由题意知$x_1,x_2,x_3,x_4\in \{0,1\}$, 且$M(\alpha,\alpha)$为奇数, 
+所以$x_1,x_2,x_3,x_4$中$1$的个数为$1$或$3$. 
+
+所以
+ $$B\subseteq\{(1,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1),(0,1,1,1),(1,0,1,1),(1,1,0,1),(1,1,1,0)\}.$$ 
+将上述集合中的元素分成如下四组:
+\[(1,0,0,0),(1,1,1,0); (0,1,0,0),(1,1,0,1); (0,0,1,0),(1,0,1,1); (0,0,0,1),(0,1,1,1).\]
+经验证, 对于每组中两个元素$\alpha, \beta$, 均有$M(\alpha, \beta)=1$.\\ 
+所以每组中的两个元素不可能同时是集合$B$的元素. \\
+所以集合$B$中元素的个数不超过$4$. \\
+又集合$\{(1,0,0,0),(0,1,0,0),(0,0,1,0),(0,0,0,1)\}$满足条件, 
+所以集合$B$中元素个数的最大值为$4$. 
+
+(3) 设
+$S_k=\{(x_1,x_2,\cdots,x_n)\mid (x_1,x_2,\cdots, x_n)\in A, x_k=1, x_1=x_2=\cdots =x_{k-1}=0\}(k=1,2,\cdots,n)$,\\ 
+$S_{n+1}=\{ (x_1,x_2,\cdots, x_n)\mid x_1=x_2=\cdots =x_n=0\}$,\\ 
+则$A=S_1\bigcup S_2\bigcup \cdots \bigcup S_{n+1}$. 
+
+对于$S_k(k=1,2,\cdots, n-1)$中的不同元素$\alpha, \beta$, 经验证, $M(\alpha, \beta)\geq 1$. \\
+所以$S_k(k=1,2,\cdots, n-1)$中的两个元素不可能同时是集合$B$的元素.\\ 
+所以$B$中元素的个数不超过$n+1$. 
+
+取$e_k=(x_1,x_2,\cdots, x_n)\in S_k$且$x_{k+1}=\cdots =x_n=0(k=1,2,\cdots, n-1)$. \\
+令$B=\{e_1,e_2,\cdots, e_{n-1}\}\bigcup S_n\bigcup S_{n+1}$, 则集合$B$的元素个数为$n+1$, 且满足条件. \\
+故$B$是一个满足条件且元素个数最多的集合. 
+% \end{tcolorbox}
+
+
+
+
+
+\newpage
+
+
+\mybox{2017年}
+\begin{tcolorbox}[applelight,title={2017.20(本小题13分)}]
+设$\{a_n\}$和$\{b_n\}$是两个等差数列, 记
+$$c_n=\max\{b_1-a_1 n, b_2-a_2 n,\cdots, b_n-a_n n\}(n=1,2,3,\cdots),$$
+其中$\max\{x_1,x_2,\cdots, x_s\}$表示$x_1,x_2,\cdots, x_s$这$s$个数中最大的数.\\
+ (1) 若$a_n=n$, $b_n=2n-1$, 求$c_1,c_2,c_3$的值, 并证明${c_n}$是等差数列;\\
+ (2) 证明: 或者对任意正数$M$, 存在正整数$m$, 当$n\geq m$时, $\frac{c_n}{n}>M$; 或者存在正整数$m$, 使得$c_m, c_{m+1}, c_{m+2},\cdots$是等差数列.
+\end{tcolorbox}
+
+
+% \begin{tcolorbox}[win10light,title={解答}]
+(1) $c_1=b_1-a_1=1-1=0$,\\
+$c_2=\max\{b_1-2a_1,b_2-2a_2\}=\max \{1-2\times 1,3-2\times 2\}=-1$,\\ 
+$c_3=\max \{b_1-3a_1,b_2-3a_2,b_3-3a_3\}=\max \{1-3\times 1,3-3\times 2,5-3\times 3\}=-2$.\\
+当$n\geq 3$时, 
+$(b_{k+1}-na_{k+1})-(b_k-na_k)=(b_{k+1}-b_k)-n(a_{k+1}-a_k)=2-n<0$, \\
+所以$b_k-na_k$关于$k\in \mathbb{N}^{*}$单调递减.\\ 
+所以\[c_n=\max \{b_1-a_1n,b_2-a_2 n,\cdots, b_n-a_nn\}=b_1-a_1n=1-n.\] 
+所以对任意$n\geq 1$, $c_n=1-n$, 于是$c_{n+1}-c_n=-1$, 
+所以$\{c_n\}$是等差数列. 
+
+(2) 设数列$\{a_n\}$和$\{b_n\}$的公差分别为$d_1,d_2$, 则
+\begin{align*}
+b_k-na_k=&b_1+(k-1)d_2-[a_1+(k-1)d_1]n\\
+=&b_1-a_1n+(d_2-nd_1)(k-1).
+\end{align*}
+所以\[c_n=
+\begin{cases}
+	b_1-a_1n+(n-1)(d_2-nd_1), &\text{当$d_2>nd_1$时,}\\
+	b_1-a_1n,&\text{当$d_2\leq nd_1$时.}
+\end{cases}\]
+1. 当$d_1>0$时,\\ 
+取正整数$m>\frac{d_2}{d_1}$, 则当$n\geq m$时, $nd_1>d_2$, 因此$c_n=b_1-a_1n$. 
+此时, $c_m,c_{m+1},c_{m+2},\cdots$是等差数列.
+
+2. 当$d_1=0$时, 对任意$n\geq 1$,\\ 
+$c_n=b_1-a_1n+(n-1)\max \{d_2,0\}=b_1-a_1+(n-1)(\max \{d_2,0\}-a_1)$. \\
+此时, $c_1,c_2,c_3,\cdots,c_n,\cdots$是等差数列. 
+
+3. 当$d_1<0$时, \\
+当$n>\frac{d_2}{d_1}$时, 有$nd_1<d_2$. 所以
+\begin{align*}
+\frac{c_n}{n}=&\frac{b_1-a_1n+(n-1)(d_2-nd_1)}{n}\\
+=&n(-d_1)+d_1-a_1+d_2+\frac{b_1-d_2}{n}\\
+\geq& n(-d_1)+d_1-a_1+d_2-|b_1-d_2|. 
+\end{align*}
+对任意正数$M$, 取正整数$m>\max\{\frac{M+|b_1-d_2|+a_1-d_1-d_2}{-d_1},\frac{d_2}{d_1}\}$, 
+故当$n\geq m$时, $\frac{c_n}{n}>M$. 
+
+% \end{tcolorbox}
+
+\newpage
+
+
+\mybox{2016年}
+\begin{tcolorbox}[applelight,title={2016.20(本小题13分)}]
+设数列$A\colon a_1, a_2,\cdots, a_N$($N\geq 2$). 如果对小于$n$($2\leq n\leq N$)的每个正整数$k$都有$a_k<a_n$, 则称$n$是数列$A$的一个“$G$时刻”, 记$G(A)$是数列$A$的所有“$G$时刻”组成的集合.\\
+ (1) 对数列$A\colon -2,2,-1,1,3$, 写出$G(A)$的所有元素;\\ 
+ (2) 证明: 若数列$A$中存在$a_n$使得$a_n>a_1$, 则$G(A)\neq \varnothing$;\\
+ (3) 证明: 若数列$A$满足$a_n-a_{n-1}\leq 1$($n=2,3,\cdots,N$), 则$G(A)$的元素个数不小于$a_N-a_1$.
+\end{tcolorbox}
+
+
+% \begin{tcolorbox}[win10light,title={解答}]
+(1) $G(A)$的元素为$2$和$5$. 
+
+(2) 因为存在$a_n$使得$a_n>a_1$, 所以$\{i\in \mathbb{N}^{*}\mid 2\leq i\leq N, a_i>a_1\}\neq \varnothing$. \\
+记$m=\min \{i\in \mathbb{N}^{*}\mid 2\leq i\leq N, a_i>a_1\}$,\\  
+则$m\geq 2$, 且对任意正整数$k<m$, $a_k\leq a_1<a_m$. \\
+因此$m\in G(A)$. 从而$G(A)\neq \varnothing$. 
+
+(3) 当$a_N\leq a_1$时, 结论成立.\\ 
+以下设$a_N>a_1$. \\
+由(2)知$G(A)\neq \varnothing$. \\
+设$G(A)=\{n_1, n_2,\cdots,n_p\}$, $n_1<n_2<\cdots <n_p$. 记$n_0=1$.
+则
+\[a_{n_0}<a_{n_1}<a_{n_2}<\cdots <a_{n_p}.\] 
+对$i=0, 1, \cdots, p$, 记$G_i=\{k\in \mathbb{N}^*|n_i<k\leq N, a_k>a_{n_i}\}$. \\
+如果$G_i\neq \varnothing$, 取$m_i=\min G_i$, 则对任何$1\leq k<m_i$, $a_k\leq a_{n_i}<a_{m_i}$. \\
+从而$m_i\in G(A)$且$m_i=n_{i+1}$.\\ 
+又因为$n_p$是$G(A)$中的最大元素, 所以$G_p=\varnothing$. \\
+从而对任意$n_p\leq k\leq N$, $a_k\leq a_{n_p}$, 特别地, $a_N\leq a_{n_p}$. \\
+对$i=0, 1,\cdots, p-1$, $a_{n_{i+1}-1}\leq a_{n_i}$.\\ 
+因此$a_{n_{i+1}}=a_{n_{i+1}-1}+(a_{n_{i+1}}-a_{n_{i+1}-1})\leq a_{n_i}+1$.\\ 
+所以$a_N-a_1\leq a_{n_p}-a_1=\sum_{i=1}^{p}{(a_{n_i}-a_{n_{i-1}})}\leq p$.\\ 
+因此$G(A)$的元素个数$p$不小于$a_N-a_1$. 
+% \end{tcolorbox}
+\newpage
+
+
+\mybox{2015年}
+\begin{tcolorbox}[applelight,title={2015.20(本小题13分)}]
+已知数列$\{a_n\}$满足: $a_1\in \mathbb{N}^*, a_1\leq 36$, 且$a_{n+1}=\begin{cases}
+	2a_n, & a_n\leq 18\\
+	2a_n-36, & a_n>18
+\end{cases}(n=1,2,\cdots)$, 记集合$M=\{a_n\mid n\in \mathbb{N}^*\}$.\\
+ (1) 若$a_1=6$, 写出集合$M$的所有元素;\\
+ (2) 如集合$M$存在一个元素是$3$的倍数, 证明: $M$的所有元素都是$3$ 的倍数;\\
+ (3) 求集合$M$的元素个数的最大值.
+\end{tcolorbox}
+
+
+% \begin{tcolorbox}[win10light,title={解答}]
+(1) $6, 12, 24$. 
+
+(2) 因为集合$M$存在一个元素是$3$的倍数, 所以不妨设$a_k$是$3$的倍数.\\ 
+由$a_{n+1}=\begin{cases}
+	2a_n,& a_n\leq 18,\\
+   2a_n-36,& a_n>18 
+\end{cases}$可归纳证明对任意$n\geq k$, $a_n$是$3$的倍数.\\ 
+如果$k=1$, 则$M$的所有元素都是$3$的倍数.\\ 
+如果$k>1$, 因为$a_k=2a_{k-1}$或$a_k=2a_{k-1}-36$, 所以$2a_{k-1}$是$3$的倍数, 于是$a_{k-1}$是$3$的倍数. 类似可得, $a_{k-2},\cdots,a_1$都是$3$的倍数. 从而对任意$n\geq 1$, $a_n$是$3$的倍数, 因此$M$的所有元素都是$3$的倍数. \\
+综上, 若集合$M$存在一个元素是$3$的倍数, 则$M$的所有元素都是$3$的倍数. 
+
+(3) 由$a_1\leq 36$, $a_n=\begin{cases}
+	2a_{n-1},& a_{n-1}\leq 18,\\
+   2a_{n-1}-36,& a_{n-1}>18 
+\end{cases}$
+可归纳证明$a_n\leq 36(n=2, 3, \cdots)$.\\ 
+因为$a_1$是正整数, $a_2 =\begin{cases}
+	2a_1, & a_1\leq 18, \\
+   2a_1-36, & a_1>18, 
+\end{cases}$所以$a_2 $是$2$的倍数.\\ 
+从而当$n\geq 3$时, $a_n$是$4$的倍数. \\
+如果$a_1$是$3$的倍数, 由(2)知对所有正整数$n$, $a_n$是$3$的倍数.\\ 
+因此当$n\geq 3$时, $a_n\in \{12, 24, 36\}$. 这时$M$的元素个数不超过$5$. \\
+如果$a_1$不是$3$的倍数, 由(2)知对所有正整数$n$, $a_n$不是$3$的倍数. 
+因此当$n\geq 3$时, $a_n\in \{4, 8, 16, 20, 28, 32\}$. 这时$M$的元素个数不超过$8$.\\ 
+当$a_1=1$时, $M=\{1, 2, 4, 8, 16, 20, 28, 32\}$有$8$个元素. \\
+综上可知, 集合$M$的元素个数的最大值为$8$. 
+% \end{tcolorbox}
+\newpage
+
+
+\mybox{2014年}
+\begin{tcolorbox}[applelight,title={2014.20(本小题13分)}]
+对于数对序列$P\colon (a_1,b_1),(a_2,b_2),\cdots,(a_n,b_n)$, 记
+\[T_1(P)=a_1+b_1,\quad T_k(P)=b_k+\max\{T_{k-1}(P),a_1+a_2+\cdots+a_k\}(2\leq k\leq n),\]
+其中$\max\{T_{k-1}(P),a_1+a_2+\cdots+a_k\}$表示$T_{k-1}(P)$和$a_1+a_2+\cdots+a_k$两个数中最大的数.\\
+ (1) 对于数对序列$P\colon (2,5),(4,1)$, 求$T_1(P), T_2(P)$的值;\\
+ (2) 记$m$为$a, b, c, d$四个数中最小值, 对于由两个数对$(a, b), (c, d)$组成的数对序列$P\colon (a, b), (c, d)$和$P'\colon (a, b), (c, d)$, 试分别对$m=a$和$m=d$的两种情况比较$T_1(P)$和$T_2(P)$的大小;\\
+ (3) 在由$5$个数对$(11,8),(5,2),(16,11),(11,11),(4,6)$ 组成的所有数对序列中, 写出一个数对序列$P$使$T_5(P)$最小, 并写出 $T_5(P)$的值(只需写出结论).
+\end{tcolorbox}
+
+
+% \begin{tcolorbox}[win10light,title={解答}]
+(1) $T_1(P)=2+5=7$, $T_2(P)=1+\max \{T_1(P), 2+4\}=1+\max \{7, 6\}=8$. 
+
+(2) \[T_2(P)=\max \{a+b+d, a+c+d\},\]
+\[T_2(P')=\max \{c+d+b, c+a+b\}.\]. 
+当$m=a$时, $T_2(P')=\max \{c+d+b, c+a+b\}=c+d+b$.\\
+因为$a+b+d\leq c+b+d$, 且$a+c+d\leq c+b+d$, 所以$T_2(P)\leq T_2(P')$.\\
+当$m=d$时, $T_2(P')=\max \{c+d+b, c+a+b\}=c+a+b$.\\
+因为$a+b+d\leq c+a+b$, 且$a+c+d\leq c+a+b$, 所以$T_2(P)\leq T_2(P')$.\\
+所以无论$m=a$还是$m=d$, $T_2(P)\leq T_2(P')$都成立. 	
+
+(3) 数对序列$P\colon (4, 6), (11, 11), (16, 11), (11, 8), (5, 2)$的$T_5(P)$值最小, 
+\[T_1(P)=10,T_2(P)=26,T_3(P)=42,T_4(P)=50,T_5(P)=52.\]
+% \end{tcolorbox}
+\newpage
+
+
+\mybox{2013年理}
+\begin{tcolorbox}[applelight,title={2013.理20(本小题13分)}]
+已知$\{a_n\}$是由非负整数组成的无穷数列, 该数列前$n$项的最大值记为$A_n$, 第$n$项之后各项$a_{n+1},a_{n+2},\cdots$的最小值记为$B_n$, $d_n=A_n -B_n$.\\
+ (1) 若$\{a_n\}$为$2,1,4,3,2,1,4,3,\cdots$是一个周期为$4$的数列(即对任意$n\in \mathbb{N}^*, a_{n+4}=a_n$), 写出$d_1, d_2, d_3, d_4$的值;\\
+ (2) 设$d$是非负整数, 证明: $d_n=-d(n=1,2,3,\cdots)$的充分必要条件为$\{a_n\}$是公差为$d$的等差数列;\\
+ (3) 证明: 若 $a_1=2,d_n=1(n=1,2,3,\cdots)$, 则$\{a_n\}$的项只能是$1$或者$2$, 且有无穷多项为$1$.
+\end{tcolorbox}
+
+
+% \begin{tcolorbox}[win10light,title={解答}]
+(1) $d_1=d_2=1$, $d_3=d_4=3$.  
+
+(2) (充分性)因为$\{a_n\}$是公差为$d$的等差数列, 且$d\geq 0$, 所以
+\[a_1\leq a_2\leq \cdots \leq a_n\leq \cdots. \] 
+因此$A_n=a_n$, $B_n=a_{n+1}$, $d_n=a_n-a_{n+1}=-d$($n=1, 2, 3, \cdots$). 
+
+(必要性)因为$d_n=-d\leq 0(n=1,2,3,\cdots)$, 所以$A_n=B_n+d_n\leq B_n$.\\ 
+又因为$a_n\leq A_n$, $a_{n+1}\geq B_n$, \\
+所以$a_n\leq a_{n+1}$.\\ 
+于是, $A_n=a_n$, $B_n=a_{n+1}$. \\
+因此$a_{n+1}-a_n=B_n-A_n=-d_n=d$, \\
+即$\{a_n\}$是公差为$d$的等差数列. 
+
+(3) 因为$a_1=2$, $d_1=1$, 所以$A_1=a_1=2$, $B_1=A_1-d_1=1$. \\
+故对任意$n\geq 1$, $a_n\geq B_1=1$. \\ 
+假设$\{a_n\}$($n\geq 2$)中存在大于$2$的项. \\
+设$m$为满足$a_m>2$的最小正整数, \\
+则$m\geq 2$, 并且对任意$1\leq k<m$, $a_k\leq 2$. \\
+又因为$a_1=2$, 所以$A_{m-1}=2$, 且$A_m=a_m>2$. \\
+于是, $B_m=A_m-d_m>2-1=1$, $B_{m-1}=\min \{a_m,B_m\}\geq 2$.\\ 
+故$d_{m-1}=A_{m-1}-B_{m-1}\leq 2-2=0$, 与$d_{m-1}=1$矛盾. \\
+所以对于任意$n\geq 1$, 有$a_n\leq 2$, 即非负整数列$\{a_n\}$的各项只能为$1$或$2$.\\ 
+因为对任意$n\geq 1$, $a_n\leq 2=a_1$, \\
+所以$A_n=2$. \\
+故$B_n=A_n-d_n=2-1=1$.\\ 
+因此对于任意正整数$n$, 存在$m$满足$m>n$, 且$a_m=1$, 即数列$\{a_n\}$有无穷多项为$1$. 
+% \end{tcolorbox}
+
+\newpage
+
+
+\mybox{2013年文}
+\begin{tcolorbox}[applelight,title={2013.文20(本小题13分)}]
+给定数列$a_1, a_2, \cdots, a_n$. 对$i=1, 2, \cdots, n-1$, 该数列前$i$项的最大值记为$A_i$, 后$n-i$项$a_{i+1}, a_{i+2}, \cdots, a_n$的最小值记为$B_i$, $d_i=A_i-B_i$.\\ 
+(1) 设数列$\{a_n\}$为$3, 4, 7, 1$, 写出$d_1,d_2,d_3$的值;\\
+(2) 设$a_1, a_2, \cdots, a_n$($n\geq 4$)是公比大于$1$的等比数列, 且$a_1>0$. 证明: $d_1, d_2, \cdots, d_{n-1}$是等比数列;\\
+(3) 设$d_1, d_2, \cdots, d_{n-1}$是公差大于$0$的等差数列, 且$d_1>0$. 证明: $a_1, a_2, \cdots, a_{n-1}$是等差数列. 
+\end{tcolorbox}
+
+
+% \begin{tcolorbox}[win10light,title={解答}]
+(1) $d_1=2$, $d_2=3$, $d_3=6$.  
+
+(2) 因为$a_1>0$, 公比$q>1$,\\ 
+所以$a_1, a_2, \cdots, a_n$是递增数列. \\
+因此, 对$i=1, 2, \cdots, n-1$, $A_i=a_i$, $B_i=a_{i+1}$.\\ 
+于是对$i=1, 2, \cdots, n-1$,
+\[d_i=A_i-B_i=a_i-a_{i+1}=a_1(1-q){{q}^{i-1}}.\] 
+因此 $d_i\neq 0$且$\frac{d_{i+1}}{d_i}=q$($i=1,2,\cdots,n-2$),\\ 
+即$d_1, d_2, \cdots, d_{n-1}$是等比数列. 
+
+(3) 设$d$为$d_1, d_2, \cdots, d_{n-1}$的公差. \\
+对$1\leq i\leq n-2$, 因为$B_i\leq B_{i+1}$, $d>0$, 所以
+\begin{align*}
+A_{i+1}&=B_{i+1}+d_{i+1}\\
+&\geq B_i+d_i+d\\
+&>B_i+d_i=A_i.
+\end{align*}
+又因为$A_{i+1}=\max \{A_i,a_{i+1}\}$, 所以$a_{i+1}=A_{i+1}>A_i\geq a_i$.\\ 
+从而$a_1,a_2,\cdots,a_{n-1}$是递增数列. 因此$A_i=a_i$($i=1,2,\cdots,n-1$). \\
+又因为$B_1=A_1-d_1=a_1-d_1<a_1$, 所以$B_1<a_1<a_2 <\cdots <a_{n-1}$. \\
+因此$a_n=B_1$. \\
+所以$B_1=B_2=\cdots =B_{n-1}=a_n$. \\
+所以$a_i=A_i=B_i+d_i=a_n+d_i$.\\ 
+因此对$i=1,2,\cdots,n-2$都有$a_{i+1}-a_i=d_{i+1}-d_i=d$,\\ 
+即$a_1,a_2,\cdots,a_{n-1}$是等差数列. 
+% \end{tcolorbox}
+\newpage
+
+
+\mybox{2012年理}
+\begin{tcolorbox}[applelight,title={2012.理20(本小题13分)}]
+	设$A$是由$m\times n$个实数组成的$m$行$n$列的数表, 满足: 每个数的绝对值不大于$1$, 且所有数的和为零, 记$S(m, n)$为所有这样的数表构成的集合. 对于$A\in S(m,n)$, 记$r_i(A)$为$A$的第$i$行各数之和($1\leq i\leq m$), $c_j(A)$为$A$的第$j$列各数之和($1\leq j\leq n$);\\
+记$k(A)$为$|r_1(A)|,|r_2(A)|,\cdots,|r_m(A)|,|c_1(A)|,|c_2(A)|,\cdots, |c_n(A)|$中的最小值. \\
+(1)如表$A$, 求$k(A)$的值;
+$$\begin{array}{|c|c|c|}
+\hline
+	1 & 1 &-0.8\\
+	\hline
+	0.1&-0.3&-1\\
+	\hline
+\end{array}$$
+ (2) 设数表 $A\in S(2, 3)$ 形如
+ 	$$\begin{array}{|c|c|c|}
+ 	\hline
+ 	 		1 & 1 &c\\
+ 	 		\hline
+ 	 		a&b&-1\\
+ 	 		\hline
+ 	 	\end{array}$$
+求$k(A)$的最大值;\\
+ (3) 给定正整数$t$, 对于所有的$A\in S(2, 2t+1)$, 求$k(A)$的最大值. 
+\end{tcolorbox}
+% \begin{tcolorbox}[win10light,title={解答}]
+(1) 因为$r_1(A)=1.2$, $r_2(A)=-1.2$, $c_1(A)=1.1$, $c_2(A)=0.7$, $c_3(A)=-1.8$, 
+所以$k(A)=0.7$. 
+
+(2) 不妨设$a\leq b$. 由题意得$c=-1-a-b$.
+又因$c\geq -1$, 所以$a+b\leq 0$, 于是$a\leq 0$.\\ 
+$r_1(A)=2+c\geq 1$, $r_2(A)=-r_1(A)\leq -1$,
+$c_1(A)=1+a$, $c_2(A)=1+b$, $c_3(A)=-(1+a)-(1+b)\leq -(1+a)$. 
+所以$k(A)=1+a\leq 1$. 
+当$a=b=0$且$c=-1$时, $k(A)$取得最大值$1$.  
+
+(3) 对于给定的正整数$t$, 任给数表$A\in S(2, 2t+1)$如下: 
+$$\begin{array}{|c|c|c|c|}
+\hline
+	a_1 & a_2 &\cdots& a_{2t+1}\\
+	\hline
+	b_1 & b_2 &\cdots& b_{2t+1}\\
+	\hline
+\end{array}$$
+任意改变$A$的行次序或列次序, 或把$A$中的每个数换成它的相反数, 所得数表$A^*\in S(2, 2t+1)$, 并且$k(A)=k(A^*)$.  
+因此, 不妨设$r_1(A)\geq 0$, 且$c_j(A)\geq 0(j=1,2,\cdots,t+1)$.\\ 
+由$k(A)$的定义知, $k(A)\leq r_1(A)$, $k(A)\leq c_j(A)(j=1,2,\cdots,t+1)$.\\ 
+又因为$c_1(A)+c_2(A)+\cdots +{{c}_{2t+1}}(A)=0$,
+所以
+\begin{align*}
+(t+2)k(A)&\leq r_1(A)+c_1(A)+c_2(A)+\cdots +c_{t+1}(A)\\
+&=r_1(A)-c_{t+2}(A)-\cdots -c_{2t+1}(A)=\sum_{j=1}^{t+1}a_j-\sum_{j=t+2}^{2t+1}b_j\\
+&\leq (t+1)-t\times (-1)=2t+1.
+\end{align*} 
+所以$k(A)\leq \frac{2t+1}{t+2}$. 
+对数表$A_0$: 
+ 	$$
+ 	\begin{array}{|c|c|c|c|c|c|c|}
+ 	\hline
+ 	\text{第$1$列}&\text{第$1$列}&\cdots&\text{第$t+1$列}&\text{第$t+2$列}&\cdots&\text{第$2t+1$列}\\
+ 	\hline
+ 	 		1 & 1 &\cdots&1&-1+\frac{t-1}{t(t+2)}& \cdots & -1+\frac{t-1}{t(t+2)}\\
+ 	 		\hline
+ 	 		\frac{t-1}{t+2}&\frac{t-1}{t+2}&\cdots&\frac{t-1}{t+2}&-1&\cdots&-1 \\
+ 	 		\hline
+ 	 	\end{array}$$
+则$A_0\in S(2, 2t+1)$, 且$k(A_0)=\frac{2t+1}{t+2}$.\\ 
+综上, 对于所有的$A\in S(2, 2t+1)$, $k(A)$的最大值为$\frac{2t+1}{t+2}$. 
+% \end{tcolorbox}
+\newpage
+\mybox{2012年文}
+\begin{tcolorbox}[applelight,title={2012.文20(本小题13分)}]
+	设$A$是如下形式的$2$行$3$列的数表,
+	  	$$\begin{array}{|c|c|c|}
+ 	\hline
+ 	 		a & b &c\\
+ 	 		\hline
+ 	 		d&e&f\\
+ 	 		\hline
+ 	 	\end{array}$$
+满足性质$P$: $abcdef$$\in [-1,1]$, 且$a+b+c+d+e+f=0$. 
+记${{r}_{i}}(A)$为$A$的第$i$行各数之和($i=1, 2$), $c_j(A)$为$A$的第$j$列各数之和($j=1, 2, 3$);记$k(A)$为$|r_1(A)|$, $|r_2(A)|$, $|c_1(A)|$, $|c_2(A)|$, $|c_3(A)|$中的最小值. \\
+(1) 对如下数表$A$, 求$k(A)$的值;
+ 	$$\begin{array}{|c|c|c|}
+ 	\hline
+ 	 		1 & 1 &-0.8\\
+ 	 		\hline
+ 	 		0.1&-0.3&-1\\
+ 	 		\hline
+ 	 	\end{array}$$
+(2) 设数表$A$形如
+ 	$$\begin{array}{|c|c|c|}
+ 	\hline
+ 	 		1 & 1 &-1-2d\\
+ 	 		\hline
+ 	 		d&d&-1\\
+ 	 		\hline
+ 	 	\end{array}$$
+其中$-1\leq d\leq 0$. 求$k(A)$的最大值;\\
+(3) 对所有满足性质$P$的$2$行$3$列的数表$A$, 求$k(A)$的最大值. 
+\end{tcolorbox}
+
+
+% \begin{tcolorbox}[win10light,title={解答}]
+(1) 因为$r_1(A)=1.2$, $r_2(A)=-1.2$, $c_1(A)=1.1$, $c_2(A)=0.7$, $c_3(A)=-1.8$, 
+所以$k(A)=0.7$. 
+
+(2) $r_1(A)=1-2d$, $r_2(A)=-1+2d$, $c_1(A)=c_2(A)=1+d$, $c_3(A)=-2-2d$.\\
+因为$-1\leq d\leq 0$, \\
+所以$|r_1(A)|=|r_2(A)|\geq 1+d\geq 0$, $|c_3(A)|\geq 1+d\geq 0$.\\
+所以$k(A)=1+d\leq 1$. \\
+当$d=0$时, $k(A)$取得最大值$1$. 
+
+(3) 任给满足性质$P$的数表$A$(如下所示). 
+	$$\begin{array}{|c|c|c|}
+ 	\hline
+ 	 		a & b &c\\
+ 	 		\hline
+ 	 		d&e&f\\
+ 	 		\hline
+ 	 	\end{array}$$
+任意改变$A$的行次序或列次序, 或把$A$中的每个数换成它的相反数, 所得数表$A^*$仍满足性质$P$, 并且$k(A)=k(A^*)$
+因此, 不妨设$r_1(A)\geq 0$, $c_1(A)\geq 0$, $c_2(A)\geq 0$.\\ 
+由$k(A)$的定义知, $k(A)\leq r_1(A), k(A)\leq c_1(A), k(A)\leq c_2(A)$. 从而
+\begin{align*}
+3k(A)&\leq r_1(A)+c_1(A)+c_2(A)=(a+b+c)+(a+d)+(b+e)\\
+&=(a+b+c+d+e+f)+(a+b-f)\\
+&=a+b-f\leq 3.
+\end{align*}
+所以$k(A)\leq 1$.\\ 
+由(2)知, 存在满足性质$P$的数表$A$使$k(A)=1$. 故$k(A)$的最大值为$1$. 
+% \end{tcolorbox}
+\newpage
+
+\mybox{2011年}
+\begin{tcolorbox}[applelight,title={2011.20(本小题13分)}]
+若数列$A_n: a_1, a_2, \cdots, a_n$($n\geq 2$)满足$|a_{k+1}-a_k|=1(k=1,2,\cdots,n-1)$, 则称$A_n$为$E$数列, 记$S(A_n)=a_1+a_2+\cdots+a_n$.\\
+(1) 写出一个满足$a_1=a_5=0$, 且$S(A_5)>0$的$E$数列$A_5$;\\
+(2) 若$a_1=12, n=2000$, 证明$E$数列$A_n$是递增数列的充要条件是$a_n =2011$;\\
+(3理) 对任意给定的整数$n$($n\geq 2$), 是否存在首项为$0$的$E$数列$A_n$, 使得$S(A_n)=0$, 如果存在, 写出一个满足条件的$E$数列$A_n$; 如果不存在, 说明理由.\\
+(3文) 在$a_1=4$的$E$数列$A_n$中, 求使得$S(A_n)=0$成立的$n$的最小值.
+\end{tcolorbox}
+
+% \begin{tcolorbox}[win10light,title={解答}]
+(1) $0, 1, 2, 1, 0$是一具满足条件的$E$数列$A_5$.
+(答案不唯一, $0, 1, 0, 1, 0$也是一个满足条件的$E$数列$A_5$.)
+
+(2) 必要性: 因为$E$数列$A_5$是递增数列, 
+所以$a_{k+1}-a_k=1(k=1,2,\cdots,1999)$.
+所以$A_5$是首项为$12$, 公差为$1$的等差数列.\\
+所以$a_{2000}=12+(2000-1)\times 1=2011$.\\
+充分性, 由于$a_{2000}-a_{1000}\leq 1, 
+a_{2000}-a_{1000}\leq 1,
+\cdots,
+a_2-a_1\leq 1,$
+所以$a_{2000}-a\leq 19999$, 即$a_{2000}\leq a_1+1999$. 
+又因为$a_1=12$, $a_{2000}=2011$,
+所以$a_{2000}=a_1+1999$.\\
+故$a_{n+1}-a_n=1>0(k=1,2,\cdots,1999)$, 即$A_n$是递增数列.
+综上, 结论得证.
+
+(3理) 令$c_k=a_{k+1}-a_k=1>0(k=1,2,\cdots,n-1)$, 则$c_A=\pm 1$.
+	因为
+$a_2 =a_1+c_1+a_1=a_1+c_1+c_2,\cdots,
+a_n=a_1+c_1+c_2+\cdots +c_{n+1},$
+所以
+\begin{align*}
+S(A_n)&=na_1+(n-1)c_1+(n-2)c_2+(n-3)c_3+\cdots +c_{n-1}\\
+&=\frac{n(n-1)}{2}-[(1-c_1)(n-1)+(1-c_2)(n-2)+\cdots +(1-c_{n-1})].
+\end{align*}
+因为$c_k=\pm 1$, 所以$1-c_k$为偶数$(k=1,\cdots,n-1)$.\\
+所以$(1-c_1)(n-1)+(1-c_2)(n-2)+\cdots +(1-c_n)$为偶数,\\
+所以要使$S(A_n)=0$, 必须使$\frac{n(n-1)}{2}$为偶数,\\
+即$4$整除$n(n-1)$, 亦即$n=4m$或$n=4m+1$($m\in \mathbb{N}^*$).\\
+当$n=4m+1$($m\in \mathbb{N}^*$)时, $E$数列$A_n$的项满足$a_{4k+1}=a_{4k-1}=0, a_{4k-2}=-1, a_{4k}=1$($k=1,2,\cdots,m)$时, 有$a_1=0$, $S(A_n)=0$;\\
+$a_{4k}=1$($k=1,2,\cdots,m$), $a_{4k+1}=0$时, 有$a_1=0$, $S(A_n)=0$;\\
+当$n=4m+1$($m\in \mathbb{N}^*$)时, $E$数列$A_n$的项满足$a_{4k-1}=a_{3k-3}=0, a_{4k-2}=-1,$\\
+当$n=4m+2$或$n=4m+3$($m\in \mathbb{N}$)时, $n(m-1)$不能被$4$整除, 此时不存在$E$数列$A_n$, 
+使得$a_1=0$, $S(A_n)=0$.
+
+(3文) 对首项为4的$E$数列$A_k$, 由于$a_2 \geq a_1-1=3,
+a_3\geq a_2 -1\geq 2,
+\cdots,
+a_5\geq a_7-1\geq -3$.
+所以$a_1+a_2 +\cdots +a_k>0$($k=2,3,\cdots,8$)\\
+所以对任意的首项为$4$的$E$数列$A_m$, 若$S(A_m)=0$,\\
+则必有$n\geq 9$.\\
+又$a_1=4$的$E$数列$A_1\colon 4,3,2,1,0,-1,-2,-3,-4$满足$S(A_1)=0$,\\
+所以$n$的最小值是$9$.
+% \end{tcolorbox}
+\newpage
+
+
+\mybox{2010年}
+\begin{tcolorbox}[applelight,title={2010.20(本小题13分)}]
+	已知集合$S_n=\{X | X = (x_1, x_2,\cdots,x_n), x_i\in \{0,1\}, i=1,2, \cdots, n\}$ ($n\geq 2$) 对于$A=(a_1, a_2, \cdots, a_n),B=(b_1, b_2, \cdots, b_n)\in S_n$, 定义$A$与$B$的差为
+	\[A-B=(|a_1-b_1|,|a_2-b_2|,\cdots,|a_n-b_n|);\]
+$A$与$B$之间的距离为$d(A, B)=\sum_{i=1}^{n}|a_1-b_1|$.\\
+(文1) 当$n=5$时, 设$A=(0,1,0,0,1), B=(1,1,1,0,0)$, 求$A-B$, $d(A,B)$.\\
+(1, 文2) 证明: $\forall A, B, C\in S_n$, 有$A-B\in S_n$, 且$d(A-C, B-C) =d(A, B)$;\\
+(2, 文3) 证明: $\forall A, B, C\in S_n$, $d(A, B), d(A, C), d(B, C)$三个数中至少有一个是偶数;\\
+(3) 设$P\subseteq S_n$, $P$中有$m$($m\geq 2$)个元素, 记$P$中所有两元素间距离的平均值为$\bar{d}(P)$. 证明: $\bar{d}(P)\leq \frac{mn}{2(m-1)}$.
+\end{tcolorbox}
+
+
+% \begin{tcolorbox}[win10light,title={解答}]
+(文1)$A-B=(|0-1|,|1-1|,|0-1|,|0-0|,|1-0|)=(1,0,1,0,1).$\\
+         $d(A,B)=|0-1|+|1-1|+|0-1|+|0-0|+|1-0|=3.$
+
+(理1) 设$A=(a_1, a_2, \cdots, a_n), B=(b_1, b_2, \cdots, b_n), C=(c_1,c_2,\cdots,c_n)\in S_n$.\\
+      因为$a_i$, $b_i\in \{0,1\}$, 所以$a_i-b_i\in \{0,1\}$, $(i=1,2,\cdots,n)$.\\
+      从而$A-B=(|a_1-b_1|,|a_2-b_2|,\cdots,|a_n-b_n|)\in S_n$.\\
+     又$d(A-C, B-C)=\sum_{i=1}^{n} \left| |a_i-c_i|-|b_i-c_i| \right|$.\\
+由题意知$a_i$, $b_i$, $c_i\in \{0,1\}$($i=1,2,\cdots,n$).\\
+当$c_i=0$时, $\left||a_i-c_i|-|b_i-c_i|\right|=|a_i-b_i|$;\\
+当$c_i=1$时, $\left||a_i-c_i|-|b_i-c_i|\right|=|(1-a_i)-(1-b_i)|=|a_i-b_i|$.
+
+所以$d(A-C,B-C)=\sum_{i=1}^{n} |a_i-b_i|=d(A,B)$.
+
+(理2) 设$A=(a_1,a_2,\cdots,a_n)$, $B=(b_1,b_2,\cdots,b_n)$, $C=(c_1,c_2,\cdots,c_n)\in S_n$,\\
+$d(A,B)=k$, $d(A,C)=l$, $d(B,C)=h$.\\
+记$O=(0,0,\cdots,0)\in S_n$, 由(1)可知
+\begin{align*}
+d(A,B)&=d(A-A,B-A)=d(O,B-A)=k,\\
+d(A,C)&=d(A-A,C-A)=d(O,C-A)=l,\\
+d(B,C)&=d(B-A,C-A)=h.
+\end{align*}
+所以$|b_i-a_i|$($i=1,2,\cdots,n$)中$1$的个数为$k$, $|c_i-a_i|$($i=1,2,\cdots,n$)的$1$的
+个数为$l$.\\
+设$t$是使$|b_i-a_i|=|c_i-a_i|=1$成立的$i$的个数, 则$h=l+k-2t$.\\
+由此可知, $k,l,h$三个数不可能都是奇数,\\ 
+即$d(A,B)$, $d(A,C)$, $d(B,C)$三个数中至少有一个是偶数.
+
+(理3) $\bar{d}(P)=\frac{1}{C_{m}^2}\sum_{A,B\in P}{d(A,B)}$, 其中$\sum_{A,B\in P}{d(A,B)}$表示$P$中所有两个元素间距离的总和,\\ 
+设$P$种所有元素的第$i$个位置的数字中共有$t_i$个$1$, $m-t_i$个$0$.\\
+则$\sum_{A,B\in P}{d(A,B)}=\sum_{i=1}^{n}{t_i}(m-t_i)$.\\
+由于$t_i(m-t_i)\leq \frac{m^2}{4}$($i=1,2,\cdots,n$),\\
+所以$\sum_{A,B\in P}{d(A,B)} \leq \frac{nm^2}{4}$.\\
+从而$\bar{d}(P)=\frac{1}{C_{m}^{2}}\sum_{A,B\in P}{d(A,B)}\leq \frac{nm^2}{4C_{m}^{2}}=\frac{mn}{2(m-1)}.$
+
+% \end{tcolorbox}
+% \newpage
+
+% \mybox{2009年}
+% \begin{tcolorbox}[applelight,title={2009.20(本小题13分)}]
+% 已知数集$A=\{a_1, a_2, \cdots, a_n\}$($1\leq a_1<a_2<\cdots<a_n, n\geq 2$)具有性质$P$:
+% 对任意的$i,j$($1\leq i\leq j\leq n$), $a_ia_j$与$\frac{a_j}{a_i}$两数中至少有一个属于$A$.\\
+% (1) 分别判断数集$\{1,3,4\}$与$\{1,2,3,6\}$是否具有性质$P$, 并说明理由;\\
+% (2) 证明: $a_1=1$, 且$\frac{a_1+a_2+\cdots+a_n}{a_1^{-1}+a_2^{-1}+\cdots+a_n^{-1}}=a_n$;\\
+% (3) 证明: 当$n=5$时, $a_1,a_2,a_3,a_4,a_5$成等比数列.
+% \end{tcolorbox}
+
+
+% \begin{tcolorbox}[win10light,title={解答}]
+% (1)
+
+% (2)
+
+% (3)
+% \end{tcolorbox}
+
+% \makebackcover
+\end{document}
